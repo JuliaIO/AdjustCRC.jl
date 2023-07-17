@@ -36,10 +36,10 @@ function gen_revtable(poly::UInt32)
     return table
 end
 
-const REVTABLE32 = gen_revtable(POLY32) # reversed CRC-32C table
+const REVTABLE32  = gen_revtable(POLY32)  # reversed CRC-32 table
 const REVTABLE32c = gen_revtable(POLY32c) # reversed CRC-32C table
 
-revtable(::typeof(CRC32.crc32)) = REVTABLE32
+revtable(::typeof(CRC32.crc32))   = REVTABLE32
 revtable(::typeof(CRC32c.crc32c)) = REVTABLE32c
 
 # Table-driven "backwards" calculation of CRC: Algorithm 6 from Stigge et al.
