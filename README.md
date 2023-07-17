@@ -142,4 +142,4 @@ on the algorithm described in:
 
 * Martin Stigge, Henryk Plötz, Wolf Müller, and Jens-Peter Redlich, [Reversing CRC – Theory and Practice](https://sar.informatik.hu-berlin.de/research/publications/SAR-PR-2006-05/SAR-PR-2006-05_.pdf), HU Berlin Public Report SAR-PR-2006-05 (May 2006).
 
-as suggested [on StackOverflow](https://stackoverflow.com/questions/1514040/reversing-crc32) by Jeremy Adsitt and others.
+as suggested [on StackOverflow](https://stackoverflow.com/questions/1514040/reversing-crc32).
