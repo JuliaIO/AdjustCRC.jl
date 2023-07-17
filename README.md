@@ -21,7 +21,7 @@ Write 4 bytes to `a[fixpos:fixpos+3]` so that `crc(a)` becomes equal to `wantcrc
 This is especially useful if you want to store the checksum of some data *within
 the data* itself, or simply to set the crc to an arbitrary predetermined value.
 Here, `crc` is a function that computes a 32-bit CRC checksum:
-either `crc32c` from the `CRC32c` standard library or `crc32`
+either `crc32c` from the [CRC32c standard library](https://docs.julialang.org/en/v1/stdlib/CRC32c/) or `crc32`
 from the [CRC32.jl package](https://github.com/JuliaIO/CRC32.jl).
 
 Note that the `adjust_crc!` function is most efficient when `fixpos` is
@@ -76,7 +76,7 @@ You can also pass a filename to `adjust_crc` to modify a file after the fact:
 julia> adjust_crc(crc32c, "foo.dat", 0x05060708)
 IOStream(<file foo.dat>)
 
-julia> open(crc32c, "foo.dat") # chck that it has the new checksum
+julia> open(crc32c, "foo.dat") # check that it has the new checksum
 0x05060708
 
 julia> read("foo.dat", String) # another 4 bytes of "garbage" have been appended
