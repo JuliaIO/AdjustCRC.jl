@@ -1,6 +1,6 @@
 # AdjustCRC
 
-[![Build Status](https://github.com/stevengj/AdjustCRC.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/stevengj/AdjustCRC.jl/actions/workflows/CI.yml?query=branch%3Amain)
+[![Build Status](https://github.com/JuliaIO/AdjustCRC.jl/actions/workflows/CI.yml/badge.svg?branch=main)](https://github.com/JuliaIO/AdjustCRC.jl/actions/workflows/CI.yml?query=branch%3Amain)
 
 This module exports two functions, `adjust_crc` and `adjust_crc!`,
 which allow you to write 4 bytes to a file or array in order to
