@@ -3,6 +3,10 @@ uuid = "ff5396d8-130b-441a-8382-fec03de644a8"
 authors = ["Steven G. Johnson <stevenj@alum.mit.edu> and contributors"]
 version = "1.0.0-DEV"
 
+[deps]
+CRC32 = "b4567568-9dcc-467e-9b62-c342d3a501d3"
+CRC32c = "8bf52ea8-c179-5cab-976a-9e18b702a9bc"
+
 [compat]
 julia = "1"
 
