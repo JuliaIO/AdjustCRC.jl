@@ -77,7 +77,7 @@ function adjust_crc!(crc::F, a::AbstractVector{UInt8}, wantcrc::UInt32, fixpos::
 
     # Algorithm 8 from Stigge et al.
     checkbounds(a, fixpos:fixpos+3)
-    @views store_le!(a, fixpos, crc(a[begin:fixpos-1]) ⊻ 0xffffffff)
+    @views store_le!(a, fixpos, crc(a[firstindex(a):fixpos-1]) ⊻ 0xffffffff)
     @views store_le!(a, fixpos, bwcrc(a[fixpos:end], wantcrc, revtable(crc)))
     return a
 end
@@ -105,7 +105,8 @@ position within an array.
 function adjust_crc(crc::F, io::IO, wantcrc::UInt32) where {F}
     le(v::UInt32) = [v%UInt8, (v>>8)%UInt8, (v>>16)%UInt8, (v>>24)%UInt8]
 
-    isreadable(io) && iswritable(io) && throw(ArgumentError("stream must be readable and writable"))
+    isreadable(io) || throw(ArgumentError("stream must be readable"))
+    iswritable(io) || throw(ArgumentError("stream must be writable"))
 
     # specialized version of adjust_crc32c! for writing to end
     write(io, htol(bwcrc(le(crc(seekstart(io)) ⊻ 0xffffffff), wantcrc, revtable(crc))))
