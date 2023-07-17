@@ -77,7 +77,7 @@ function adjust_crc!(crc::F, a::AbstractVector{UInt8}, wantcrc::UInt32, fixpos::
 
     # Algorithm 8 from Stigge et al.
     checkbounds(a, fixpos:fixpos+3)
-    @views store_le!(a, fixpos, crc(a[begin:fixpos-1]) ⊻ 0xffffffff)
+    @views store_le!(a, fixpos, crc(a[firstindex(a):fixpos-1]) ⊻ 0xffffffff)
     @views store_le!(a, fixpos, bwcrc(a[fixpos:end], wantcrc, revtable(crc)))
     return a
 end
