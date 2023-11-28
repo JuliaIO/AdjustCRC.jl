@@ -58,6 +58,8 @@ Then we can use `adjust_crc` to append 4 bytes which force this checksum, either
 we have the file still open or afterwards given the filename:
 
 ```jl
+julia> using AdjustCRC, CRC32c
+
 julia> open("foo.dat", "w+") do io   # create/open foo.dat for reading and writing
            println(io, "Hello, world!\n")
            adjust_crc(crc32c, io, 0x01020304)
@@ -132,7 +134,7 @@ julia> crc32c(s) # check that it has the desired CRC
 
 All of the above examples used the CRC-32c checksum by passing the `crc32c` argument.
 You can instead do the same thing with the CRC-32 (ISO 3309 / ITU-T V.42 / CRC-32-IEEE)
-checksum by doing `import CRC32` (from [CRC32.jl](https://github.com/JuliaIO/CRC32.jl))
+checksum by doing `using CRC32` (from [CRC32.jl](https://github.com/JuliaIO/CRC32.jl))
 and passing `crc32` instead.
 
 ## Acknowledgements
